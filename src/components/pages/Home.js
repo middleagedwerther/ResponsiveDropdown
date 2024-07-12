@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../App.css';
-import FormSubmit from './FormSubmit';
 import styled from 'styled-components';
 import bkgrnd from "../../images/amerifence.png";
 import WoodenFence from "../../images/woodenfence.png";
@@ -9,99 +8,15 @@ import Iron from "../../images/ironfence.jpg";
 import Zaun from "../../images/zaun.jpg"; // Corrected the import path
 
 import { Link } from 'react-router-dom';
-import Footer2 from './Footer2';
+import FooterWithColumns from "./FooterWithColumns.js"
 import QuoteCarousel from './QuoteCarousel.js';
 import { useGlobals } from "../../Globals.js";
 import Accordion from './SitePointAccordion.js';
-import PixGrid from './PixelGrid.js';
 import Header from './Header.js';
-import StickyHeader from './StickyHeader.js';
-import DotPointHero from './DotPointHero.js';
-import WhoAreWe from './WhoAreWe.js';
-import ServicesSection from './ServicesSection.js';
 import FourServices from './FourServices.js';
-import HeaderWithButton from './HeaderWithButton.js';
-import FooterWithIcon from './FooterWithIcon.js';
-import FooterWithColumns from "./FooterWithColumns.js"
+import ThreeServices from './ThreeServices.js';
 
-const Container = styled.h1`
-  position: relative;
-  max-width: 100%;
-  background: red;
-`;
 
-const HeaderWrapper = styled.div`
-  margin: -100px;
-  padding: 0;
-`;
-
-const FormContainer = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 400px;
-  padding: 20px;
-  background-color: grey;
-  border-radius: 5px;
-  margin-right: 20px;
-  margin-top: 70px;
-
-  @media screen and (max-width: 626px) {
-    width: 100%;
-    position: static;
-    margin: 0;
-    padding: 10px;
-  }
-`;
-
-const BkgrndContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw; /* Ensure full viewport width */
-  height: 100vh; /* Ensure full viewport height */
-  background-image: url(${bkgrnd});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1; /* Place it behind other elements */
-`;
-
-const H1 = styled.h1`
-  font-family: ${props => props.globalFont};
-  position: absolute;
-  top: 10%;
-  left: 0;
-  color: white;
-  text-align: left;
-  padding: 20px;
-  font-size: 50px;
-
-  @media screen and (max-width: 626px) {
-    font-size: 30px;
-    padding: 10px;
-  }
-`;
-
-const H2 = styled.h2`
-  font-family: ${props => props.globalFont};
-  position: absolute;
-  top: 30%;
-  left: 0;
-  color: white;
-  width: 65%;
-  text-align: left;
-  padding: 20px;
-  font-size: 30px;
-  font-weight: 50;
-  letter-spacing: 2px;
-
-  @media screen and (max-width: 626px) {
-    font-size: 20px;
-    width: 100%;
-    padding: 10px;
-  }
-`;
 
 const Parent = styled.div`
   margin-top: 60px;
@@ -109,14 +24,6 @@ const Parent = styled.div`
   position: relative;
   overflow: hidden; /* Ensure content stays within the viewport */
   background: #f7f7f7;
-`;
-
-const GridContainer = styled.div`
-  top: 0;
-  left: 0;
-  opacity: 0.2;
-  position: relative;
-  z-index: 999;
 `;
 
 const ServicesContainer = styled.div`
@@ -179,27 +86,6 @@ const TestimonialsContainer = styled.div`
   background-color: ${props => props.background || 'transparent'};
 `;
 
-const TestimonialsGrid = styled.div`
-  padding-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 20px;
-
-  @media screen and (max-width: 626px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const TestimonialWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%;
-  border-radius: 5px;
-  color: black;
-  border: 1px solid black;
-`;
-
 const ImageBox = styled.img`
   position: absolute;
   top: 0;
@@ -257,31 +143,6 @@ const SectionHeading = styled.div`
   font-family: ${props => props.globalFont};
 `;
 
-const OurServices = ({ globalFont, background }) => (
-  <OurServicesContainer background={background}>
-    <SectionHeading globalFont={globalFont}>Our Services</SectionHeading>
-    <ServicesContainer>
-      <ImageBoxWrapper>
-        <StyledLink to="/services">
-          <Overlay />
-          <ImageBox src={WoodenFence} />
-        </StyledLink>
-      </ImageBoxWrapper>
-      <ImageBoxWrapper>
-        <StyledLink to="/marketing">
-          <ImageBox src={Aluminium} />
-          <Overlay />
-        </StyledLink>
-      </ImageBoxWrapper>
-      <ImageBoxWrapper>
-        <StyledLink to="/services">
-          <ImageBox src={Iron} />
-          <Overlay />
-        </StyledLink>
-      </ImageBoxWrapper>
-    </ServicesContainer>
-  </OurServicesContainer>
-);
 
 const WhyChooseUs = ({ globalFont, background }) => (
   <WhyChooseUsContainer background={background}>
@@ -318,7 +179,7 @@ export default function Home() {
       <Header/>
       <WhyChooseUs globalFont={GlobalFont} background={ColorA} />
       <Separator />
-      <FourServices />
+      <ThreeServices />
       <Separator />
       <Testimonials globalFont={GlobalFont} background={ColorA} />
       <Separator />

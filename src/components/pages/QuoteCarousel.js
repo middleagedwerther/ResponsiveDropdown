@@ -73,7 +73,7 @@ const QuoteCarousel = () => {
 
   const textStyle = {
     fontSize: '15px',
-    background:PrimaryColour,
+    background: PrimaryColour,
     width: '100%',
     height: 'auto',
     objectFit: 'cover',
@@ -86,6 +86,7 @@ const QuoteCarousel = () => {
     paddingLeft: '20px',
     boxSizing: 'border-box',
     minHeight: `${maxHeight}px`,
+    borderRadius: '15px 15px 0 0', // Rounded corners for the top of the text box
   };
 
   const H4style = {
@@ -113,6 +114,7 @@ const QuoteCarousel = () => {
     margin: '0 10px',
     fontFamily: GlobalFont,
     boxSizing: 'border-box',
+    borderRadius: '15px', // Added border-radius to the entire box
   };
 
   const imageBox = {
@@ -139,6 +141,7 @@ const QuoteCarousel = () => {
     paddingBottom: '3px',
     textAlign: 'left',
     background: PrimaryColour,
+    borderRadius: '15px 15px 0 0', // Added border-radius to the quote box
   };
 
   const clientName = {

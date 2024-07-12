@@ -60,7 +60,7 @@ const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   padding-left: 20px;
   padding-right: 20px;
   background: ${props => props.primaryColour};
@@ -135,7 +135,7 @@ const ImageBox = styled.img`
   }
 `;
 
-export default function FourServices() {
+export default function ThreeServices() {
   const { GlobalFont, PrimaryColour } = useGlobals();
 
   return (
@@ -189,17 +189,7 @@ export default function FourServices() {
           </>
         </Cell>
 
-        <Cell primaryColour={PrimaryColour}>
-          <ImageBoxWrapper>
-            <ImageBox src={AmeriFence} alt="USA Fence" />
-            <Overlay globalFont={GlobalFont}>USA fence is good.</Overlay>
-          </ImageBoxWrapper>
-          <>
-            <SubHeading globalFont={GlobalFont}>USA</SubHeading>
-            <MobileOverlayText globalFont={GlobalFont}>USA fence is good.</MobileOverlayText>
-            {/* <Para globalFont={GlobalFont}>Iron is good</Para> */}
-          </>
-        </Cell>
+
       </Container>
     </>
   );

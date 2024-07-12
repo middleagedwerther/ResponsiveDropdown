@@ -6,18 +6,21 @@ import WSPGallery from './Gallery2';
 
 import bkgrnd from "../../images/amerifence.png";
 import image1 from "../../images/img-1.jpg";
-import holz1 from "../../images/holz1.jpg";
-import holz2 from "../../images/holz2.jpg";
-import holz3 from "../../images/holz3.jpg";
-import holz4 from "../../images/holz4.jpg";
-import holz5 from "../../images/holz5.jpg";
-import holz6 from "../../images/holz6.jpg";
-import holz7 from "../../images/holz7.webp";
-import holz8 from "../../images/holz8.jpg";
-import holz9 from "../../images/holz9.jpg";
-import madera from "../../images/madera3.jpg";
-import madera1 from "../../images/madera1.jpg";
-import madera2 from "../../images/madera2.webp";
+import holz1 from "../../images/alumino4.jpg";
+import holz2 from "../../images/aluminio7.jpg";
+import holz3 from "../../images/aluminio6.jpg";
+import holz4 from "../../images/alumino8.jpg";
+import holz5 from "../../images/alumino9.jpg";
+import holz6 from "../../images/alumino1.png";
+import holz7 from "../../images/alumino2.png";
+import holz8 from "../../images/alumino3.png";
+import holz9 from "../../images/alumino5.png";
+import madera from "../../images/alumino.png";
+import madera1 from "../../images/alumino10.jpg";
+import madera2 from "../../images/alumino11.png";
+import madera3 from "../../images/alumino12.png";
+import madera4 from "../../images/alumino13.png";
+
 
 const fadeIn = keyframes`
   from {
@@ -120,7 +123,7 @@ const GalleryContainer = styled.div`
   // animation: ${fadeIn} 1.5s ease-in-out;
 `;
 
-export default function Wooden() {
+export default function Aluminium() {
   const { GlobalFont } = useGlobals();
 
   const galleryImages = [
@@ -136,6 +139,10 @@ export default function Wooden() {
     { img: madera, className: "thumbnail" },
     { img: madera1, className: "thumbnail" },
     { img: madera2, className: "thumbnail" },
+        { img: madera3, className: "thumbnail" },
+
+          { img: madera4, className: "thumbnail" },
+
   ];
 
   return (
@@ -143,10 +150,10 @@ export default function Wooden() {
       <Container>
         <BackgroundImage />
         <H1Wrapper>
-          <H1 globalFont={GlobalFont}>Wooden Fences</H1>
+          <H1 globalFont={GlobalFont}>Aluminium Fences</H1>
         </H1Wrapper>
         <H2Wrapper>
-          <H2 globalFont={GlobalFont}>Explore Our Beautiful Wooden Fence Collection</H2>
+          <H2 globalFont={GlobalFont}>Explore Our Beautiful Aluminium Fence Collection</H2>
         </H2Wrapper>
       </Container>
       <GalleryContainer>

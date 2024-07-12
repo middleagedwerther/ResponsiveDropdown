@@ -1,26 +1,19 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Dropdown from './Dropdown';
-// import { Dropdown } from './Dropdown';
 import logo from '../images/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useGlobals } from "../Globals";
-
 
 // Styled Components
 const NavBackground = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-
-  //   position: sticky;
-  // top: 0;
-  // left: 0;
-
   width: 100%;
-    z-index: 50;
+  z-index: 50;
   background: ${(props) => props.PrimaryColour};
   height: 60px;
   display: grid;
@@ -34,7 +27,6 @@ const NavBackground = styled.div`
   }
 `;
 
-
 const NavPhone = styled.div`
   z-index: 100;
   background: ${(props) => props.PrimaryColour};
@@ -44,7 +36,6 @@ const NavPhone = styled.div`
   transition: font-size 0.1s ease;
   font-family: ${(props) => props.fontFamily};
 `;
-
 
 const NavPhoneText = styled.div`
   display: flex;
@@ -58,7 +49,6 @@ const NavPhoneText = styled.div`
     color: yellow;
   }
 `;
-
 
 const NavbarLogo = styled.div`
   color: #fff;
@@ -79,7 +69,6 @@ const NavbarLogo = styled.div`
   }
 `;
 
-
 const NavbarContainer = styled.nav`
   grid-column: 2;
   z-index: 100;
@@ -91,7 +80,6 @@ const NavbarContainer = styled.nav`
   font-size: 1.2rem;
   font-family: ${(props) => props.fontFamily};
 `;
-
 
 const MenuIcon = styled.div`
   display: none;
@@ -109,7 +97,6 @@ const MenuIcon = styled.div`
     font-family: ${(props) => props.fontFamily};
   }
 `;
-
 
 const NavMenu = styled.ul`
   display: grid;
@@ -142,14 +129,12 @@ const NavMenu = styled.ul`
   }
 `;
 
-
 const NavItem = styled.li`
   display: flex;
   align-items: center;
   height: 60px;
   font-family: ${(props) => props.fontFamily};
 `;
-
 
 const NavLinks = styled(Link)`
   color: white;
@@ -176,56 +161,23 @@ const NavLinks = styled(Link)`
   }
 `;
 
-
-const NavLinksMobile = styled(Link)`
-  display: none;
-  font-family: ${(props) => props.fontFamily};
-
-  @media screen and (max-width: 960px) {
-    display: block;
-    text-align: center;
-    padding: 1.5rem;
-    margin: 2rem auto;
-    border-radius: 4px;
-    max-width: 80%;
-    background: #1888ff;
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.5rem;
-
-    &:hover {
-      background: #fff;
-      color: #1888ff;
-      transition: 250ms;
-    }
-  }
-`;
-
-
 const PhoneLink = styled.a`
   font-family: ${props => props.globalFont};
   text-decoration: none;
   color: white;
   padding-left: 20px;
-  // font-size: 2vw; 
-  // font-size: clamp(5rem, 5vw, 9rem)
-font-size: 1.2rem;
+  font-size: 1.2rem;
 
   @media screen and (max-width: 960px) {
-    // font-size: 3vw; /* Adjust for smaller screens */
     font-size: clamp(1.2rem, 5vw, 2.7rem)
   }
 `;
-
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const {
-    GlobalFont, setGlobalFont,
-    PrimaryColour, setPrimaryColour,
-    SecondaryColour, setSecondaryColour,
-    TertiaryColour, setTertiaryColour
+    GlobalFont, PrimaryColour
   } = useGlobals();
 
   const handleClick = () => setClick(!click);
@@ -247,10 +199,21 @@ function Navbar() {
     }
   };
 
+  const location = useLocation();
+
+  const handleHomeClick = (event) => {
+    if (location.pathname === "/") {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      closeMobileMenu();
+    }
+  };
+
   return (
     <NavBackground fontFamily={GlobalFont} PrimaryColour={PrimaryColour}>
       <NavbarLogo fontFamily={GlobalFont} PrimaryColour={PrimaryColour}>
-        <Link to='/' onClick={closeMobileMenu}>
+        <Link to='/' onClick={handleHomeClick} className="home-linkN">
           <img src={logo} alt="Your Logo" className="navbar-logo" />
         </Link>
       </NavbarLogo>
@@ -258,7 +221,7 @@ function Navbar() {
       <NavbarContainer fontFamily={GlobalFont} PrimaryColour={PrimaryColour}>
         <NavMenu className={click ? 'active' : ''} fontFamily={GlobalFont}>
           <NavItem fontFamily={GlobalFont}>
-            <NavLinks to='/' onClick={closeMobileMenu} fontFamily={GlobalFont}>
+            <NavLinks to='/' onClick={handleHomeClick} fontFamily={GlobalFont} className="home-linkN2">
               Home
             </NavLinks>
           </NavItem>
@@ -269,15 +232,10 @@ function Navbar() {
             {dropdown && <Dropdown />}
           </NavItem>
           <NavItem fontFamily={GlobalFont}>
-            <NavLinks to='/products' onClick={closeMobileMenu} fontFamily={GlobalFont}>
+            <NavLinks to='/about-us' onClick={closeMobileMenu} fontFamily={GlobalFont}>
               About Us
             </NavLinks>
           </NavItem>
-          {/* <NavItem fontFamily={GlobalFont}>
-            <NavLinks to='/gallery' onClick={closeMobileMenu} fontFamily={GlobalFont}>
-              Gallery
-            </NavLinks>
-          </NavItem> */}
           <NavItem fontFamily={GlobalFont}>
             <NavLinks to='/contact-us' onClick={closeMobileMenu} fontFamily={GlobalFont}>
               Contact Us

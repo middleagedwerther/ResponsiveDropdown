@@ -1,130 +1,101 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useGlobals } from "../../Globals.js"
+import { useGlobals } from "../../Globals.js";
 
-// Define a styled component for the form container
 const FormContainer = styled.div`
-  width: 100%; /* Full width of parent */
-  height: 100%; /* Full height of parent */
-  display: flex; /* Flexbox to center content */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  background-color: grey;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.primaryColour};
   padding: 20px;
-  border-radius: 5px;
-
-  @media screen and (max-width: 341px) {
-    padding: 10px;
-    // background-color: orange;
-  }
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
 `;
 
-// Define a styled component for the form
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-width: 260px; /* Minimum width of 260px */
-
-  @media screen and (max-width: 960px) {
-    width: 90%;
-  }
+  max-width: 400px; /* Limiting form width */
 `;
 
-// Define a styled component for the input fields
 const StyledInput = styled.input`
-  margin-bottom: 10px;
-  padding: 5px;
+  margin-bottom: 15px;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 5px;
   font-family: ${(props) => props.fontFamily};
-  width: 100%;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
 
-  @media screen and (max-width: 341px) {
-    width: 100%; /* Ensure it does not overflow */
-    // background:orange;
+  &:focus {
+    outline: none;
+    border-color: ${(props) => props.primaryColour};
   }
 `;
 
-// Define a styled component for the select dropdown
-const StyledSelect = styled.select`
-  margin-bottom: 10px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  font-family: ${(props) => props.fontFamily};
-  width: 100%;
-`;
-
-// Define a styled component for the radio button container
-const RadioContainer = styled.div`
-  margin-bottom: 10px;
-`;
-
-// Define a styled component for the radio button label
-const RadioLabel = styled.label`
-  display: block;
-  margin-bottom: -8px;
-  font-family: ${(props) => props.fontFamily};
-`;
-
-// Define a styled component for the submit button
 const StyledButton = styled.button`
-  padding: 10px 15px;
-  background-color: #333;
-  color: #fff;
+  padding: 12px 20px;
+  background-color: #1e90ff;
+  color: white;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
   font-family: ${(props) => props.fontFamily};
+  font-size: 18px;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: blue;
+    background-color: blue; /* Darker shade on hover */
   }
 `;
 
 const StyledMessage = styled.textarea`
-  margin-bottom: 10px;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  height: 150px;
-  font-family: ${(props) => props.fontFamily};
-  width: 100%;
-`;
-
-// Define a styled component for the label above each field
-const FieldLabel = styled.label`
-  font-weight: bold;
-  margin-bottom: 5px;
-  font-family: ${(props) => props.fontFamily};
-`;
-
-const FormHeading = styled.label`
-  font-weight: bold;
-  font-size: 25px;
   margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   font-family: ${(props) => props.fontFamily};
+  font-size: 16px;
+  height: 150px;
+  resize: none; /* Prevent resizing */
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: ${(props) => props.primaryColour};
+  }
+`;
+
+const FormHeading = styled.div`
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-family: ${(props) => props.fontFamily};
+  text-align: center;
 `;
 
 export default function FormSubmit() {
-  const { GlobalFont } = useGlobals();
+  const { GlobalFont, PrimaryColour } = useGlobals();
 
   return (
-    <FormContainer>
+    <FormContainer primaryColour={PrimaryColour}>
       <StyledForm action="https://formsubmit.co/greyhoundcoding@gmail.com" method="POST">
         <FormHeading fontFamily={GlobalFont}>Get a FREE quote</FormHeading>
 
-        <StyledInput type="text" name="name" placeholder="Name" required fontFamily={GlobalFont} />
+        <StyledInput type="text" name="name" placeholder="Name" required fontFamily={GlobalFont} primaryColour={PrimaryColour} />
 
-        <StyledInput type="email" name="email" placeholder="Email" required fontFamily={GlobalFont} />
+        <StyledInput type="email" name="email" placeholder="Email" required fontFamily={GlobalFont} primaryColour={PrimaryColour} />
 
-        <StyledInput type="tel" name="phone" placeholder="Telephone Number" required fontFamily={GlobalFont} />
+        <StyledInput type="tel" name="phone" placeholder="Telephone Number" required fontFamily={GlobalFont} primaryColour={PrimaryColour} />
 
-        <StyledMessage name="message" placeholder="Message" required fontFamily={GlobalFont} />
+        <StyledMessage name="message" placeholder="Message" required fontFamily={GlobalFont} primaryColour={PrimaryColour} />
 
-        <StyledButton type="submit" fontFamily={GlobalFont}>Submit</StyledButton>
-        <StyledInput type="hidden" name="_next" value="http://localhost:3000/marketing" fontFamily={GlobalFont} />
+        <StyledButton type="submit" primaryColour={PrimaryColour} fontFamily={GlobalFont}>Submit</StyledButton>
+        <StyledInput type="hidden" name="_next" value="http://localhost:3000/" fontFamily={GlobalFont} />
       </StyledForm>
     </FormContainer>
   );

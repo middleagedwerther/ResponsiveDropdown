@@ -5,13 +5,13 @@ export const MenuItems = [
     cName: 'dropdown-link'
   },
   {
-    title: 'Consulting',
-    path: '/consulting',
+    title: 'Aluminium',
+    path: '/aluminium',
     cName: 'dropdown-link'
   },
   {
-    title: 'Design',
-    path: '/design',
+    title: 'Iron',
+    path: '/iron',
     cName: 'dropdown-link'
   },
   {

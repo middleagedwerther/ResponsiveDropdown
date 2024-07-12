@@ -6,18 +6,22 @@ import WSPGallery from './Gallery2';
 
 import bkgrnd from "../../images/amerifence.png";
 import image1 from "../../images/img-1.jpg";
-import holz1 from "../../images/holz1.jpg";
-import holz2 from "../../images/holz2.jpg";
-import holz3 from "../../images/holz3.jpg";
-import holz4 from "../../images/holz4.jpg";
-import holz5 from "../../images/holz5.jpg";
-import holz6 from "../../images/holz6.jpg";
-import holz7 from "../../images/holz7.webp";
-import holz8 from "../../images/holz8.jpg";
-import holz9 from "../../images/holz9.jpg";
-import madera from "../../images/madera3.jpg";
-import madera1 from "../../images/madera1.jpg";
-import madera2 from "../../images/madera2.webp";
+import holz1 from "../../images/eisen1.webp";
+import holz2 from "../../images/eisen10.webp";
+import holz3 from "../../images/eisen11.jpg";
+import holz4 from "../../images/eisen12.jpg";
+import holz5 from "../../images/eisen2.jpg";
+import holz6 from "../../images/eisen3.jpg";
+import holz7 from "../../images/eisen3.webp";
+import holz8 from "../../images/eisen4.jpg";
+import holz9 from "../../images/eisen5.jpg";
+import madera from "../../images/eisen7.jpg";
+import madera1 from "../../images/eisen6.jpg";
+import madera2 from "../../images/eisen9.webp";
+import madera3 from "../../images/eisen13.jpg";
+import madera4 from "../../images/eisen14.jpg";
+import madera5 from "../../images/eisen15.jpg";
+
 
 const fadeIn = keyframes`
   from {
@@ -120,7 +124,7 @@ const GalleryContainer = styled.div`
   // animation: ${fadeIn} 1.5s ease-in-out;
 `;
 
-export default function Wooden() {
+export default function Iron() {
   const { GlobalFont } = useGlobals();
 
   const galleryImages = [
@@ -136,6 +140,10 @@ export default function Wooden() {
     { img: madera, className: "thumbnail" },
     { img: madera1, className: "thumbnail" },
     { img: madera2, className: "thumbnail" },
+    { img: madera3, className: "thumbnail" },
+    { img: madera4, className: "thumbnail" },
+    { img: madera5, className: "thumbnail" },
+
   ];
 
   return (
@@ -143,10 +151,10 @@ export default function Wooden() {
       <Container>
         <BackgroundImage />
         <H1Wrapper>
-          <H1 globalFont={GlobalFont}>Wooden Fences</H1>
+          <H1 globalFont={GlobalFont}>Iron Fences</H1>
         </H1Wrapper>
         <H2Wrapper>
-          <H2 globalFont={GlobalFont}>Explore Our Beautiful Wooden Fence Collection</H2>
+          <H2 globalFont={GlobalFont}>Explore Our Beautiful Iron Fence Collection</H2>
         </H2Wrapper>
       </Container>
       <GalleryContainer>
